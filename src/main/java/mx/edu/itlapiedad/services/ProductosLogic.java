@@ -1,7 +1,5 @@
 package mx.edu.itlapiedad.services;
 
-
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,10 +28,11 @@ public class ProductosLogic implements ProductosServices {
 	}
 	
 	@Override
-	public Productos insertar(Productos productos) {
+	public Productos insertar (Productos productos) {
 		
 		return repositorio.insertar(productos);
 	}
 
 }
+
 
