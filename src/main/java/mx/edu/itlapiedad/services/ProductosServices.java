@@ -1,0 +1,15 @@
+package mx.edu.itlapiedad.services;
+
+import java.util.List;
+
+import mx.edu.itlapiedad.models.Productos;
+
+public interface ProductosServices {
+
+	List<Productos> consultarProductos();
+
+	Productos buscar(int id);
+
+	Productos insertar(Productos productos);
+
+}
