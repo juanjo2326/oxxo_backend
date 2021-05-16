@@ -6,6 +6,7 @@ public class Productos {
     private String descripcion;
     private float   precio;
     private String codigo_barras;
+    
 	public int getId() {
 		return id;
 	}
