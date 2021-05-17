@@ -32,6 +32,18 @@ public class ProductosLogic implements ProductosServices {
 		
 		return repositorio.insertar(productos);
 	}
+	
+	@Override
+	public void actualizar(Productos productos) {
+		repositorio.actualizar(productos);
+
+	}
+
+	@Override
+	public void eliminar(int id) {
+		// TODO Auto-generated method stub
+		repositorio.eliminar(id);
+	}
 
 }
 
