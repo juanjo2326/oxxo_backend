@@ -13,6 +13,9 @@ public interface CajerosDao {
 	Cajeros insertar(Cajeros Cajeros);
 
 	List<Cajeros> consultarCajeros();
+	
+	void actualizar(Cajeros cajeros);
 
+	void eliminar(int id);
 
 }

@@ -13,5 +13,8 @@ public interface CajerosService {
 
 	Cajeros insertar(Cajeros Cajeros);
 
+	void actualizar(Cajeros cajeros);
+
+	void eliminar(int id);
 
 }

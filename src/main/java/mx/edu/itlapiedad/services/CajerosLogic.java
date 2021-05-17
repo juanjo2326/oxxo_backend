@@ -32,6 +32,17 @@ public class CajerosLogic implements CajerosService {
 		
 		return repositorio.insertar(Cajeros);
 	}
+	@Override
+	public void actualizar(Cajeros Cajeros) {
+		 repositorio.actualizar(Cajeros);
+		
+	}
+
+	@Override
+	public void eliminar(int id) {
+		repositorio.eliminar(id);
+		
+	}
 
 }
 

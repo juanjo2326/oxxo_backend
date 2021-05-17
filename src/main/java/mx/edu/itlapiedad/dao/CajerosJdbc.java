@@ -70,5 +70,21 @@ public class CajerosJdbc implements CajerosDao {
 		Cajeros.setId(id.intValue());
 		return Cajeros;
 	}
+	@Override
+	public void actualizar(Cajeros cajeros) {
+		String sql_update = "UPDATE cajeros SET nombre = ? WHERE id = ?";
+		conexion.update(sql_update, 
+		        cajeros.getNombre(),
+		        cajeros.getId());
+		        
+			}
+	
+	
+	@Override
+	public void eliminar(int id) {
+		String sql_update="UPDATE cajeros SET activo=0 WHERE id=?";
+		conexion.update(sql_update,id);
+		
+	}
 
 }
