@@ -13,5 +13,9 @@ public interface ProductosDao {
 	Productos insertar(Productos productos);
 
 	List<Productos> consultarProductos();
+	
+	void actualizar(Productos productos);
+
+	void eliminar(int id);
 
 }

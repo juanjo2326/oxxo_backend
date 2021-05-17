@@ -2,7 +2,7 @@ package mx.edu.itlapiedad.models;
 
 public class Productos {
 
-	private int id,existencia;
+	private int id,existencia,activo;
     private String descripcion;
     private float   precio;
     private String codigo_barras;
@@ -37,6 +37,11 @@ public class Productos {
 	public void setCodigo_barras(String codigo_barras) {
 		this.codigo_barras = codigo_barras;
 	}
-    
+	public int getActivo() {
+		return activo;
+	}
+	public void setActivo(int activo) {
+		this.activo = activo;
+	}
     
 }

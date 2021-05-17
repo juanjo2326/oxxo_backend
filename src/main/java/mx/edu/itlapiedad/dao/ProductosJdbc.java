@@ -79,4 +79,26 @@ public class ProductosJdbc implements ProductosDao {
 		return productos;
 	}
 
+
+	@Override
+	public void actualizar(Productos productos) {
+		String sql_update = "UPDATE productos SET descripcion = ?, precio = ?, codigo_barras = ?, "
+				+ "existencia = ? WHERE id = ?";
+		conexion.update(sql_update, 
+		        productos.getDescripcion(),
+		        productos.getPrecio(),
+		        productos.getCodigo_barras(),
+		        productos.getExistencia(),
+		        productos.getId());
+		
+	}
+
+
+	@Override
+	public void eliminar(int id) {
+		String sql_update="UPDATE productos SET activo=0 WHERE id=?";
+		conexion.update(sql_update,id);
+		
+	}
+
 }
