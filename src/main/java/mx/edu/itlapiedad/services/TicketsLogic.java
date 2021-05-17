@@ -4,45 +4,40 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import mx.edu.itlapiedad.dao.TicketsDao;
+import mx.edu.itlapiedad.dao.*;
 import mx.edu.itlapiedad.models.Tickets;
 
 @Service
-
-
-public class TicketsLogic implements TicketsServices {
-	
+public class TicketsLogic implements TicketsServices{
 	@Autowired
-	TicketsDao repositorios;
+	TicketsDao repositorio;
 	
+	@Override
+	public List<Tickets> consultarTickets(){
+		return repositorio.consultarTickets();		
+	}
 	
 	@Override
 	public Tickets buscar(int id) {
-		return repositorios.buscar(id);
+		// TODO Auto-generated method stub
+		return repositorio.buscar(id);
 	}
-
+	
 	@Override
 	public Tickets insertar(Tickets Tickets) {
-		return repositorios.insertar(Tickets);
+		
+		return repositorio.insertar(Tickets);
 	}
-
-	@Override
-	public List<Tickets> consultarTickets() {
-		return repositorios.consultarTickets();
-	}
-
+	
 	@Override
 	public void actualizar(Tickets Tickets) {
-		 repositorios.actualizar(Tickets);
+		 repositorio.actualizar(Tickets);
 		
 	}
 
 	@Override
 	public void eliminar(int id) {
-		repositorios.eliminar(id);
+		repositorio.eliminar(id);
 		
 	}
-
 }
-
-

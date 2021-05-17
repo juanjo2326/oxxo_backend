@@ -16,32 +16,24 @@ import org.springframework.stereotype.Repository;
 
 import mx.edu.itlapiedad.models.Tickets;
 @Repository
-
 public class TicketsJdbc implements TicketsDao{
-	
 	@Autowired
 	JdbcTemplate conexion;
-
+	
 	@Override
 	public List<Tickets> consultarTickets() {
-		String sql_query = "SELECT * FROM Tickets WHERE activo=1";
+		String sql_query = "SELECT * FROM tickets";
 		return conexion.query(sql_query, new RowMapper<Tickets>() {
 			public Tickets mapRow(ResultSet rs,int rowNum) throws SQLException {
 				Tickets Tickets = new Tickets();
 				Tickets.setId(rs.getInt("id"));
-				Tickets.setFecha_hora(rs.getTimestamp("fecha_hora"));
+				Tickets.setFecha_hora(rs.getString("Fecha_hora"));
 				Tickets.setTotal(rs.getFloat("total"));
 				Tickets.setCAJERO_id(rs.getInt("CAJERO_id"));
-				Tickets.setActivo(rs.getInt("activo"));
 				return Tickets;
-				
 			}
-
-			
 		});
 	}
-	
-	
 	@Override
 	public Tickets buscar(int id) {
 		String sql_query = "SELECT * FROM Tickets WHERE id=?";
@@ -49,42 +41,40 @@ public class TicketsJdbc implements TicketsDao{
 			public Tickets mapRow(ResultSet rs, int rowNum) throws SQLException {
 				Tickets Tickets = new Tickets();
 				Tickets.setId(rs.getInt("id"));
-				Tickets.setFecha_hora(rs.getTimestamp("fecha_hora"));
+				Tickets.setFecha_hora(rs.getString("Fecha_hora"));
 				Tickets.setTotal(rs.getFloat("total"));
 				Tickets.setCAJERO_id(rs.getInt("CAJERO_id"));
-				Tickets.setActivo(rs.getInt("activo"));
 				return Tickets;
 			}
 			
 		},id);
 	}
 	
-	
 	@Override
 	public Tickets insertar(Tickets Tickets) {
-
-		SimpleJdbcInsert insert = new SimpleJdbcInsert(conexion).withTableName("Tickets")
-				.usingColumns("total","CAJERO_id").usingGeneratedKeyColumns("id");
-		Map<String, Object> datos = new HashMap<>();
-		datos.put("total", Tickets.getTotal());
-		datos.put("CAJERO_id", Tickets.getCAJERO_id());
-		Number id = insert.executeAndReturnKey(datos);
+		
+		SimpleJdbcInsert insert=new SimpleJdbcInsert(conexion).withTableName("Tickets")
+				.usingColumns("Fecha_hora","total","CAJERO_id")
+				.usingGeneratedKeyColumns("id");
+		Map<String,Object> datos = new HashMap<>();
+		datos.put("Fecha_hora", Tickets.getFecha_hora());
+	         datos.put("total", Tickets.getTotal());
+	datos.put("CAJERO_id", Tickets.getCAJERO_id());
+		
+		Number id=insert.executeAndReturnKey(datos);
 		Tickets.setId(id.intValue());
-		Tickets.setActivo(1);
-	//	tickets.setFecha_hora("CURRENT_TIMESTAMP");
 		return Tickets;
 	}
 	
-	
 	@Override
 	public void actualizar(Tickets Tickets) {
-		String sql_update = "UPDATE Tickets SET total = ?, CAJERO_id =?  WHERE id = ?";
+		String sql_update = "UPDATE tickets SET fecha_hora = ?, total = ?, "
+				+ "CAJERO_id = ? WHERE id = ?";
 		conexion.update(sql_update, 
+				Tickets.getFecha_hora(),
 				Tickets.getTotal(),
 				Tickets.getCAJERO_id(),
-		    //    tickets.getFecha_hora(),
 				Tickets.getId());
-		        
 			}
 	
 	
@@ -94,5 +84,6 @@ public class TicketsJdbc implements TicketsDao{
 		conexion.update(sql_update,id);
 		
 	}
+
 
 }
