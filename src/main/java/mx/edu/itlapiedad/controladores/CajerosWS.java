@@ -21,14 +21,24 @@ import mx.edu.itlapiedad.services.CajerosService;
 
 @RestController
 @RequestMapping("/devops/cajeros")
-
-
 public class CajerosWS {
 
 	@Autowired
 	CajerosService servicio;
 	
+	@GetMapping()
+	public ResponseEntity<?> consultarCajeros(){
+		List<Cajeros> resultado;
+		try {
+			resultado = servicio.consultarCajeros();
+		}catch (DataAccessException e) {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}
+		return new ResponseEntity<List<Cajeros>>(resultado,HttpStatus.OK);
+	}
+	
 	@GetMapping("/{id}")
+	
 	public ResponseEntity<?> buscar(@PathVariable int id){
 		Cajeros resultado;
 		try {
@@ -40,43 +50,40 @@ public class CajerosWS {
 	}
 	
 	@PostMapping()
-	public ResponseEntity<?>insertar(@RequestBody Cajeros Cajeros){
+	public ResponseEntity<?>insertar(@RequestBody Cajeros cajeros){
 		Cajeros resultado;
 	try {
-		resultado=servicio.insertar(Cajeros);
+		resultado=servicio.insertar(cajeros);
 		
 	} catch (DataAccessException e) {
+		System.out.println(e);
 	return new ResponseEntity<>(HttpStatus.CONFLICT);
 	}	
 		return new ResponseEntity<Cajeros>(resultado,HttpStatus.CREATED);
 		
 	}
-	@GetMapping()
-	public ResponseEntity<?> consultarCajeros(){
-		List<Cajeros> resultado;
-		try {
-			resultado = servicio.consultarCajeros();
-		}catch (DataAccessException e) {
-			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-		}
-		return new ResponseEntity<List<Cajeros>>(resultado,HttpStatus.OK);
-	}
+	
 	@PutMapping()
 	public ResponseEntity<?> actualizar(@RequestBody Cajeros cajeros){
 		try {
 			servicio.actualizar(cajeros);
 		} catch (DataAccessException e) {
+			System.out.println(e);
 			return new ResponseEntity<>(HttpStatus.CONFLICT);
 		}
 		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
 	
+	
+	
 	@DeleteMapping("/{id}")
 	public ResponseEntity<?>eliminarCajero(@PathVariable int id){
 		
+
 		try {
 			servicio.eliminar(id);
 		}catch(DataAccessException e) {
+			
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 			
 		}
@@ -85,5 +92,5 @@ public class CajerosWS {
 		
 	}
 	
+	
 }
-

@@ -12,64 +12,63 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 
-
 import mx.edu.itlapiedad.models.Cajeros;
 
-
 @Repository
-
-
-public class CajerosJdbc implements CajerosDao {
-	
+public class CajerosJdbc implements CajerosDao{
 	@Autowired
 	JdbcTemplate conexion;
 	
 	
 	@Override
-	public List<Cajeros> consultarCajeros() {
-		String sql_query = "SELECT * FROM cajeros";
+    public List<Cajeros> consultarClientes() {
+		String sql_query = "SELECT * FROM cajeros WHERE activo=1";
 		return conexion.query(sql_query, new RowMapper<Cajeros>() {
 			public Cajeros mapRow(ResultSet rs,int rowNum) throws SQLException {
-				Cajeros Cajeros = new Cajeros();
-				Cajeros.setId(rs.getInt("id"));
-				Cajeros.setNombre(rs.getString("Nombre"));
-				return Cajeros;
+				Cajeros cajeros = new Cajeros();
+				cajeros.setId(rs.getInt("id"));
+				cajeros.setNombre(rs.getString("nombre"));
+				cajeros.setActivo(rs.getInt("activo"));
+				return cajeros;
 				
 			}
 
 			
 		});
 	}
-
+	
 
 	@Override
 	public Cajeros buscar(int id) {
 		String sql_query = "SELECT * FROM cajeros WHERE id=?";
 		return conexion.queryForObject(sql_query, new RowMapper<Cajeros>() {
 			public Cajeros mapRow(ResultSet rs, int rowNum) throws SQLException {
-				Cajeros Cajeros = new Cajeros();
-				Cajeros.setId(rs.getInt("id"));
-				Cajeros.setNombre(rs.getString("Nombre"));
-				return Cajeros;
+				Cajeros cajeros = new Cajeros();
+				cajeros.setId(rs.getInt("id"));
+				cajeros.setNombre(rs.getString("nombre"));
+				cajeros.setActivo(rs.getInt("activo"));
+				return cajeros;
 			}
 			
 		},id);
 	}
 	
+
 	@Override
-	public Cajeros insertar(Cajeros Cajeros) {
+	public Cajeros insertar(Cajeros cajeros) {
+
+		SimpleJdbcInsert insert = new SimpleJdbcInsert(conexion).withTableName("cajeros")
+				.usingColumns("nombre").usingGeneratedKeyColumns("id");
+		Map<String, Object> datos = new HashMap<>();
+		datos.put("nombre", cajeros.getNombre());
 		
-		SimpleJdbcInsert insert=new SimpleJdbcInsert(conexion).withTableName("Cajeros")
-				.usingColumns("Nombre")
-				.usingGeneratedKeyColumns("id");
-		Map<String,Object> datos = new HashMap<>();
-		datos.put("Nombre", Cajeros.getNombre());
-	         
-		
-		Number id=insert.executeAndReturnKey(datos);
-		Cajeros.setId(id.intValue());
-		return Cajeros;
+		Number id = insert.executeAndReturnKey(datos);
+		cajeros.setId(id.intValue());
+		cajeros.setActivo(1);
+		return cajeros;
 	}
+	
+	
 	@Override
 	public void actualizar(Cajeros cajeros) {
 		String sql_update = "UPDATE cajeros SET nombre = ? WHERE id = ?";
@@ -86,5 +85,7 @@ public class CajerosJdbc implements CajerosDao {
 		conexion.update(sql_update,id);
 		
 	}
+
+
 
 }

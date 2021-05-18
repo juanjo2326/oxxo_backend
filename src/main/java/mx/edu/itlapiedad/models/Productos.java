@@ -1,12 +1,10 @@
 package mx.edu.itlapiedad.models;
 
 public class Productos {
-
 	private int id,existencia,activo;
-    private String descripcion;
-    private float   precio;
-    private String codigo_barras;
-    
+	private String descripcion;
+	private float   precio;
+	private String codigo_barras;
 	public int getId() {
 		return id;
 	}
@@ -43,5 +41,4 @@ public class Productos {
 	public void setActivo(int activo) {
 		this.activo = activo;
 	}
-    
 }

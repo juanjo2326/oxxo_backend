@@ -5,22 +5,19 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import mx.edu.itlapiedad.dao.ProductosDao;
+import mx.edu.itlapiedad.dao.*;
 import mx.edu.itlapiedad.models.Productos;
 
 @Service
-
-public class ProductosLogic implements ProductosServices {
+public class ProductosLogic implements ProductosService {
 	
     @Autowired
     ProductosDao repositorio;
 	
 	@Override
 	public List<Productos> consultarProductos() {
-
 		return repositorio.consultarProductos();
 	}
-
 	@Override
 	public Productos buscar(int id) {
 		// TODO Auto-generated method stub
@@ -28,24 +25,22 @@ public class ProductosLogic implements ProductosServices {
 	}
 	
 	@Override
-	public Productos insertar (Productos productos) {
+	public Productos insertar(Productos productos) {
 		
 		return repositorio.insertar(productos);
 	}
 	
 	@Override
-	public void actualizar(Productos productos) {
+	public void actualizar(Productos  productos) {
+		
 		repositorio.actualizar(productos);
-
 	}
-
+	
 	@Override
 	public void eliminar(int id) {
-		// TODO Auto-generated method stub
+		
 		repositorio.eliminar(id);
 	}
 
+
 }
-
-
-
