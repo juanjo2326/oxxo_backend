@@ -1,10 +1,10 @@
-package mx.edu.itlapiedad.dao;
+package mx.edu.itlapiedad.DAO;
 
 import java.util.List;
 
 import mx.edu.itlapiedad.models.Cajeros;
 
-public interface CajerosDao {
+public interface CajerosDAO {
 
 	List<Cajeros> consultarClientes();
 

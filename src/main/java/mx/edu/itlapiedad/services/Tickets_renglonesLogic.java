@@ -5,14 +5,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 
-import mx.edu.itlapiedad.dao.Tickets_renglonesDao;
+import mx.edu.itlapiedad.DAO.Tickets_renglonesDAO;
 import mx.edu.itlapiedad.models.Tickets_renglones;
 
 
 public class Tickets_renglonesLogic {
 	
     @Autowired
-Tickets_renglonesDao repositorio;
+Tickets_renglonesDAO repositorio;
 	
 
 	public List<Tickets_renglones> consultarTickets_renglones() {

@@ -1,4 +1,4 @@
-package mx.edu.itlapiedad.dao;
+package mx.edu.itlapiedad.DAO;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -17,7 +17,7 @@ import mx.edu.itlapiedad.models.Productos;
 
 	@Repository
 
-	public class ProductosJdbc implements ProductosDao {
+	public class ProductosJDBC implements ProductosDAO {
 		@Autowired
 		JdbcTemplate conexion;
 		
@@ -36,10 +36,9 @@ import mx.edu.itlapiedad.models.Productos;
 					return productos;
 					
 				}
-
-				
 			});
 		}
+		
 		@Override
 		public Productos buscar(int id) {
 			String sql_query = "SELECT * FROM productos WHERE id=?";
@@ -89,7 +88,7 @@ import mx.edu.itlapiedad.models.Productos;
 		
 		@Override
 		public void eliminar(int id) {
-			String sql_update="UPDATE productos SET activo=0 WHERE id=?";
+			String sql_update="delete from productos WHERE id=?";
 			conexion.update(sql_update,id);
 			
 		}

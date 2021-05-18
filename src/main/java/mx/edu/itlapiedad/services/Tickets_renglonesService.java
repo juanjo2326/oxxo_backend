@@ -1,3 +1,6 @@
+/**
+ * 
+ */
 package mx.edu.itlapiedad.services;
 
 import java.util.List;
@@ -5,7 +8,10 @@ import java.util.List;
 
 import mx.edu.itlapiedad.models.Tickets_renglones;
 
-
+/**
+ * @author natal
+ *
+ */
 public interface Tickets_renglonesService {
 	List<Tickets_renglones> consultarTickets_renglones(); 
 	

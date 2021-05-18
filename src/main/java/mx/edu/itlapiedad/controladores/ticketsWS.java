@@ -74,16 +74,11 @@ public class ticketsWS {
 		
 		@DeleteMapping("/{id}")
 		public ResponseEntity<?>eliminartickets(@PathVariable int id){
-			
-
 			try {
 				servicio.eliminar(id);
 			}catch(DataAccessException e) {
-				
 				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-				
 			}
-			
 			return new ResponseEntity<tickets>(HttpStatus.OK);
 			
 		}

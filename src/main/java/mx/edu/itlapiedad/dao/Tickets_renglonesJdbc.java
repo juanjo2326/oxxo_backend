@@ -1,4 +1,4 @@
-package mx.edu.itlapiedad.dao;
+package mx.edu.itlapiedad.DAO;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,7 +14,7 @@ import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 
 import mx.edu.itlapiedad.models.Tickets_renglones;
 
-public class Tickets_renglonesJdbc implements Tickets_renglonesDao{
+public class Tickets_renglonesJDBC implements Tickets_renglonesDAO{
 	@Autowired
 	JdbcTemplate conexion;
 	

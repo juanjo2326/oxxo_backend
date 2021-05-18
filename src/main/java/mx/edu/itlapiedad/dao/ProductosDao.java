@@ -1,10 +1,10 @@
-package mx.edu.itlapiedad.dao;
+package mx.edu.itlapiedad.DAO;
 
 import java.util.List;
 
 import mx.edu.itlapiedad.models.Productos;
 
-public interface ProductosDao {
+public interface ProductosDAO {
 
 	List<Productos> consultarProductos();
 	
@@ -18,5 +18,4 @@ public interface ProductosDao {
 	void eliminar(int id);
 	
 }
-
 

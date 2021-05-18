@@ -1,4 +1,4 @@
-package mx.edu.itlapiedad.dao;
+package mx.edu.itlapiedad.DAO;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,7 +15,7 @@ import org.springframework.stereotype.Repository;
 import mx.edu.itlapiedad.models.tickets;
 
 @Repository
-public class ticketsJdbc implements ticketsDao {
+public class ticketsJDBC implements ticketsDAO{
 	@Autowired
 	JdbcTemplate conexion;
 	
@@ -33,9 +33,10 @@ public class ticketsJdbc implements ticketsDao {
 			}
 		});
 	}
+	
 	@Override
 	public tickets buscar(int id) {
-		String sql_query = "SELECT * FROM tickets WHERE id=?";
+		String sql_query = "SELECT * FROM tickets";
 		return conexion.queryForObject(sql_query, new RowMapper<tickets>() {
 			public tickets mapRow(ResultSet rs, int rowNum) throws SQLException {
 				tickets tickets = new tickets();
@@ -79,11 +80,9 @@ public class ticketsJdbc implements ticketsDao {
 	
 	@Override
 	public void eliminar(int id) {
-		String sql_update="UPDATE cajeros SET activo=0 WHERE id=?";
+		String sql_update="delete from tickets WHERE id=?";
 		conexion.update(sql_update,id);
-		
 	}
 
 
 }
-

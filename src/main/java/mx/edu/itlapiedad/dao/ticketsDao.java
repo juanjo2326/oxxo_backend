@@ -1,10 +1,10 @@
-package mx.edu.itlapiedad.dao;
+package mx.edu.itlapiedad.DAO;
 
 import java.util.List;
 
 import mx.edu.itlapiedad.models.tickets;
 
-public interface ticketsDao {
+public interface ticketsDAO {
 
 	List<tickets> consultarTickets();
 	
@@ -17,4 +17,3 @@ public interface ticketsDao {
 	void eliminar(int id);
 	
 }
-

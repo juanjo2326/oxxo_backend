@@ -1,10 +1,10 @@
-package mx.edu.itlapiedad.dao;
+package mx.edu.itlapiedad.DAO;
 
 import java.util.List;
 
 import mx.edu.itlapiedad.models.Tickets_renglones;
 
-public interface Tickets_renglonesDao {
+public interface Tickets_renglonesDAO {
 	List<Tickets_renglones> consultarTickets_renglones();
 	
 	Tickets_renglones buscarTickets_renglones(int id);

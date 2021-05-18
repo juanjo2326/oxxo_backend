@@ -6,14 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
-import mx.edu.itlapiedad.dao.CajerosDao;
+import mx.edu.itlapiedad.DAO.CajerosDAO;
 import mx.edu.itlapiedad.models.Cajeros;
 
 @Service
 public class CajerosLogic implements CajerosService {
 	
 	@Autowired
-	CajerosDao repositorios;
+	CajerosDAO repositorios;
 	
 	@Override
 	public Cajeros buscar(int id) {
@@ -46,3 +46,8 @@ public class CajerosLogic implements CajerosService {
 	}
 	
 }
+
+
+
+
+

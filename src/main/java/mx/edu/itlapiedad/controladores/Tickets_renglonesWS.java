@@ -55,6 +55,9 @@ public class Tickets_renglonesWS {
 		return new ResponseEntity<Tickets_renglones>(resultado,HttpStatus.CREATED);
 	
 	}
+	
+	
+	//Metodo de actualizar 
 			@PutMapping()
 			public ResponseEntity<?> actualizarTickets_renglones(@RequestBody Tickets_renglones TR){
 			try {

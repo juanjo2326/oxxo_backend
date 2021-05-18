@@ -2,7 +2,7 @@ package mx.edu.itlapiedad.models;
 
 public class Cajeros {
 	
-	private int id, activo;
+	private int id;
 	private String nombre;
 	
 	public int getId() {
@@ -10,12 +10,6 @@ public class Cajeros {
 	}
 	public void setId(int id) {
 		this.id = id;
-	}
-	public int getActivo() {
-		return activo;
-	}
-	public void setActivo(int activo) {
-		this.activo = activo;
 	}
 	public String getNombre() {
 		return nombre;
