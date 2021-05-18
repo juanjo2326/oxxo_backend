@@ -1,4 +1,4 @@
-package mx.edu.itlapiedad.DAO;
+package mx.edu.itlapiedad.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -17,7 +17,7 @@ import mx.edu.itlapiedad.models.Productos;
 
 	@Repository
 
-	public class ProductosJDBC implements ProductosDAO {
+	public class ProductosJdbc implements ProductosDao {
 		@Autowired
 		JdbcTemplate conexion;
 		
