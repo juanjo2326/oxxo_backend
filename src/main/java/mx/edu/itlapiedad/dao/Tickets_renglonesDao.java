@@ -7,11 +7,11 @@ import mx.edu.itlapiedad.models.Tickets_renglones;
 public interface Tickets_renglonesDAO {
 	List<Tickets_renglones> consultarTickets_renglones();
 	
-	Tickets_renglones buscarTickets_renglones(int id);
+	Tickets_renglones buscar(int id);
 	
-	Tickets_renglones insertarTickets_renglones(Tickets_renglones TR);
+	Tickets_renglones insertar(Tickets_renglones Tickets_renglones);
 
-	void actualizarTickets_renglones(Tickets_renglones TR);
+	void actualizar(Tickets_renglones Tickets_renglones);
 	
-
+	void eliminar(int id);
 }

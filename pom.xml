@@ -12,7 +12,7 @@
 	<artifactId>oxxo_backend</artifactId>
 	<version>0.0.1</version>
 	<name>oxxo_backend</name>
-	<description> Backend para base de datos oxxo</description>
+	<description>Backend para base de datos tienda oxxo</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>

@@ -36,7 +36,7 @@ public class ticketsJDBC implements ticketsDAO{
 	
 	@Override
 	public tickets buscar(int id) {
-		String sql_query = "SELECT * FROM tickets";
+		String sql_query = "SELECT * FROM tickets where id=?";
 		return conexion.queryForObject(sql_query, new RowMapper<tickets>() {
 			public tickets mapRow(ResultSet rs, int rowNum) throws SQLException {
 				tickets tickets = new tickets();
@@ -52,14 +52,13 @@ public class ticketsJDBC implements ticketsDAO{
 	
 	@Override
 	public tickets insertar(tickets tickets) {
-		
 		SimpleJdbcInsert insert=new SimpleJdbcInsert(conexion).withTableName("tickets")
 				.usingColumns("Fecha_hora","total","CAJERO_id")
 				.usingGeneratedKeyColumns("id");
 		Map<String,Object> datos = new HashMap<>();
-		datos.put("Fecha_hora", tickets.getFecha_hora());
-	         datos.put("total", tickets.getTotal());
-	datos.put("CAJERO_id", tickets.getCAJERO_id());
+			datos.put("Fecha_hora", tickets.getFecha_hora());
+	        datos.put("total", tickets.getTotal());
+	        datos.put("CAJERO_id", tickets.getCAJERO_id());
 		
 		Number id=insert.executeAndReturnKey(datos);
 		tickets.setId(id.intValue());

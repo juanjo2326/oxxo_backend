@@ -1,24 +1,13 @@
-/**
- * 
- */
 package mx.edu.itlapiedad.services;
 
 import java.util.List;
 
-
 import mx.edu.itlapiedad.models.Tickets_renglones;
 
-/**
- * @author natal
- *
- */
 public interface Tickets_renglonesService {
 	List<Tickets_renglones> consultarTickets_renglones(); 
-	
-	Tickets_renglones buscarTickets_renglones(int id);
-	
-	Tickets_renglones insertarTickets_renglones(Tickets_renglones TR);
-	
-	void actualizarTickets_renglones(Tickets_renglones TR);
-	
+	Tickets_renglones buscar(int id);
+	Tickets_renglones insertar(Tickets_renglones Tickets_renglones);
+	void actualizar(Tickets_renglones Tickets_renglones);
+	void eliminar(int id);
 }

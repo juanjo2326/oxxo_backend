@@ -35,6 +35,7 @@ public class ticketsWS {
 			}
 			return new ResponseEntity<List<tickets>>(resultado,HttpStatus.OK);
 		}
+		
 		@GetMapping("/{id}")
 		public ResponseEntity<?> buscar(@PathVariable int id){
 			tickets resultado;
@@ -51,12 +52,10 @@ public class ticketsWS {
 			tickets resultado;
 		try {
 			resultado=servicio.insertar(tickets);
-			
 		} catch (DataAccessException e) {
 		return new ResponseEntity<>(HttpStatus.CONFLICT);
 		}	
 			return new ResponseEntity<tickets>(resultado,HttpStatus.CREATED);
-		
 		}
 		
 		@PutMapping()
@@ -70,8 +69,6 @@ public class ticketsWS {
 			return new ResponseEntity<>(HttpStatus.CREATED);
 		}
 		
-		
-		
 		@DeleteMapping("/{id}")
 		public ResponseEntity<?>eliminartickets(@PathVariable int id){
 			try {
@@ -79,7 +76,6 @@ public class ticketsWS {
 			}catch(DataAccessException e) {
 				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 			}
-			return new ResponseEntity<tickets>(HttpStatus.OK);
-			
+			return new ResponseEntity<tickets>(HttpStatus.OK);	
 		}
 }
