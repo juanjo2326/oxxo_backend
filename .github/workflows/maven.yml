@@ -21,10 +21,10 @@ jobs:
       with:
         java-version: '11'
         distribution: 'adopt'
-    - name: Build with Maven
+    - name: Compilar y empaquetar con Maven
       run: mvn -B package --file pom.xml
     - name: subir .jar
       uses: action/upload-artifact@v2
-      wiht:
+      with:
         name: oxxo_backend
         path: Users\nuher\Documents\workspace-spring-tool-suite-4-4.10.0.RELEASE\oxxo_backend\target\oxxo_backend-0.0.1.jar
