@@ -23,8 +23,8 @@ jobs:
         distribution: 'adopt'
     - name: Compilar y empaquetar con Maven
       run: mvn -B package --file pom.xml
-    - name: subir .jar
+    - name: Subir .jar
       uses: actions/upload-artifact@v2
       with:
         name: oxxo_backend
-        path: target/oxxo_backend-0.0.1.jar
+        path: target/oxxo_backend-0.0.1.-SNAPSHOT.jar
