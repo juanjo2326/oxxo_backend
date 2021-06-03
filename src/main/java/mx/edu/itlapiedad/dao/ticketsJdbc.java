@@ -15,7 +15,7 @@ import org.springframework.stereotype.Repository;
 import mx.edu.itlapiedad.models.tickets;
 
 @Repository
-public class ticketsJDBC implements ticketsDAO{
+public class ticketsJdbc implements ticketsDAO{
 	@Autowired
 	JdbcTemplate conexion;
 	
