@@ -23,3 +23,8 @@ jobs:
         distribution: 'adopt'
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+    - name: subir .jar
+      uses: action/upload-artifact@v2
+      whit:
+        name: oxxo_backend
+        path: Users\nuher\Documents\workspace-spring-tool-suite-4-4.10.0.RELEASE\oxxo_backend\target\oxxo_backend-0.0.1.jar
