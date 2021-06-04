@@ -4,7 +4,7 @@ import java.util.List;
 
 import mx.edu.itlapiedad.models.Cajeros;
 
-public interface CajerosDAO {
+public interface CajerosDao {
 
 	List<Cajeros> consultarClientes();
 
