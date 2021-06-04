@@ -15,7 +15,7 @@ import org.springframework.stereotype.Repository;
 import mx.edu.itlapiedad.models.Tickets_renglones;
 
 @Repository
-public class Tickets_renglonesJDBC implements Tickets_renglonesDAO{
+public class Tickets_renglonesJdbc implements Tickets_renglonesDao{
 	
 	@Autowired
 	JdbcTemplate conexion;
