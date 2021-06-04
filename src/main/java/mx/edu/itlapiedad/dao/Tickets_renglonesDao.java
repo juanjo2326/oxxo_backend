@@ -4,7 +4,7 @@ import java.util.List;
 
 import mx.edu.itlapiedad.models.Tickets_renglones;
 
-public interface Tickets_renglonesDAO {
+public interface Tickets_renglonesDao {
 	List<Tickets_renglones> consultarTickets_renglones();
 	
 	Tickets_renglones buscar(int id);
