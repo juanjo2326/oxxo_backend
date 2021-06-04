@@ -4,7 +4,7 @@ import java.util.List;
 
 import mx.edu.itlapiedad.models.Productos;
 
-public interface ProductosDAO {
+public interface ProductosDao {
 
 	List<Productos> consultarProductos();
 	
