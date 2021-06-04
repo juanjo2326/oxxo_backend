@@ -15,7 +15,7 @@ import org.springframework.stereotype.Repository;
 import mx.edu.itlapiedad.models.Cajeros;
 
 @Repository
-public class CajerosJDBC implements CajerosDAO{
+public class CajerosJdbc implements CajerosDao{
 	@Autowired
 	JdbcTemplate conexion;
 	
