@@ -4,7 +4,7 @@ import java.util.List;
 
 import mx.edu.itlapiedad.models.tickets;
 
-public interface ticketsDAO {
+public interface ticketsDao {
 
 	List<tickets> consultarTickets();
 	
